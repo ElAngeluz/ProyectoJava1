@@ -264,6 +264,12 @@ public class frmEditarPersona extends javax.swing.JFrame {
         lblEdad.setText(String.valueOf((int)((diferenciasDeFechas(dtFecha.getDate(), new Date()))/365.25)));
     }//GEN-LAST:event_btnCalcActionPerformed
 
+    /**
+     *
+     * @param fechaInicial
+     * @param fechaFinal
+     * @return
+     */
     public static synchronized int diferenciasDeFechas(Date fechaInicial, Date fechaFinal) {
 
         DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);

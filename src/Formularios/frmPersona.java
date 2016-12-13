@@ -24,11 +24,7 @@ public class frmPersona extends javax.swing.JFrame {
      */
     public frmPersona() {
         initComponents();
-        if(String.valueOf(cbTipo.getSelectedItem()).equals("Todos"))
-            txtDescription.setEditable(false);
-        else
-            txtDescription.setEditable(true);   
-        txtDescription.setText("");        
+        suca();     
     }
 
     /**
@@ -163,15 +159,11 @@ public class frmPersona extends javax.swing.JFrame {
             txtDescription.setEditable(false);
         }
                 
-        txtDescription.setText("");
+        txtDescription.setText(null);
     }
     private void cbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoActionPerformed
         // TODO add your handling code here:        
-        if(String.valueOf(cbTipo.getSelectedItem()).equals("Todos"))
-            txtDescription.setEditable(false);
-        else
-            txtDescription.setEditable(true);   
-        txtDescription.setText("");
+        suca();
     }//GEN-LAST:event_cbTipoActionPerformed
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
@@ -212,7 +204,7 @@ public class frmPersona extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(seleccionEliminacionValida()){
-            ArrayList<Persona> eliminados= new ArrayList<Persona>(); 
+            ArrayList<Persona> eliminados= new ArrayList<>(); 
             for (int i = 0; i < gridResultados.getSelectedRows().length; i++) {
                 Persona p = new Persona();
                 p.setId(String.valueOf(gridResultados.getValueAt(gridResultados.getSelectedRows()[i],0)));
@@ -386,7 +378,7 @@ public class frmPersona extends javax.swing.JFrame {
             
             try{
                 Integer.parseInt(descripcion);
-            }catch(Exception e){
+            }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(this,
                     "Para la edad debe ingresar un número",
                     "Consulta",
