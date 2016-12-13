@@ -330,7 +330,7 @@ public class frmEditarPersona extends javax.swing.JFrame {
         
         try {
             Double.parseDouble(txtSueldo.getText());
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null,
              "El Sueldo debe ser un numero valido",
              "Ingreso",JOptionPane.ERROR_MESSAGE);
