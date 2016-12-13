@@ -15,13 +15,12 @@ import java.util.ArrayList;
 public class ValidacionS {
       public static int existeSensor(ArrayList<Sensor> registros, Sensor s){
         int i=0;
-        for (Sensor s2:registros) {
-            if(s2.getId().equals(s.getId())){
-                return i;
-            }
-            i++;
-        }
-    
+            for (Sensor s2 : registros) {
+                if(s2.getId().equals(s.getId()))
+                    return i;
+              
+                i++;
+          }    
         return -1;    
     }
 }

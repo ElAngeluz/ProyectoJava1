@@ -5,11 +5,7 @@
  */
 package archivo;
 
-import archivo.EscribirArchivo;
-import archivo.LeerArchivo;
 import Entidades.Persona;
-import archivo.EscribirArchivo;
-import archivo.LeerArchivo;
 import general.ValidacionP;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,14 +59,14 @@ public class ArchivoP{
             archivo.abrir(RUTA_ARCHIVO);
             archivo.insertar_objeto(p);
             archivo.cerrar(); 
-        }catch(Exception e){
+        }catch(IOException e){
             return false;
         }                          
         return true;
     }
     
    public static boolean actualizar_registro(Persona p){
-         ArrayList<Persona> personas = null;
+         ArrayList<Persona> personas;
          try{
             personas = ArchivoP.obtener_registros();
             int indice = ValidacionP.existePersona(personas,p);
@@ -89,14 +85,14 @@ public class ArchivoP{
             for(int i=0;i<personas.size();i++)
                 archivo.insertar_objeto(personas.get(i));
             archivo.cerrar();
-        }catch(Exception e){
+        }catch(IOException e){
             return false;
         }                 
         return true;
     }
     
     public static boolean actualizarDatosPersona(Persona p){        
-        ArrayList<Persona> registros = null;
+        ArrayList<Persona> registros;
         
         try{
             registros = ArchivoP.obtener_registros();

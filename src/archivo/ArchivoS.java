@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package archivo;
-import archivo.EscribirArchivo;
-import archivo.LeerArchivo;
 import Entidades.Sensor;
-import archivo.EscribirArchivo;
-import archivo.LeerArchivo;
 import general.ValidacionS;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,14 +57,14 @@ public class ArchivoS {
             archivo.abrir(RUTA_ARCHIVO);
             archivo.insertar_objeto(s);
             archivo.cerrar(); 
-        }catch(Exception e){
+        }catch(IOException e){
             return false;
         }                          
         return true;
     }
     
    public static boolean actualizar_registro(Sensor s){
-         ArrayList<Sensor> sensores = null;
+         ArrayList<Sensor> sensores;
          try{
             sensores = ArchivoS.obtener_registros();
             int indice = ValidacionS.existeSensor(sensores,s);
@@ -87,14 +83,14 @@ public class ArchivoS {
             for(int i=0;i<sensores.size();i++)
                 archivo.insertar_objeto(sensores.get(i));
             archivo.cerrar();
-        }catch(Exception e){
+        }catch(IOException e){
             return false;
         }                 
         return true;
     }
     
     public static boolean actualizarDatosSensor(Sensor s){        
-        ArrayList<Sensor> registros = null;
+        ArrayList<Sensor> registros;
         
         try{
             registros = ArchivoS.obtener_registros();

@@ -6,7 +6,6 @@
 package Formularios;
 
 import Entidades.Persona;
-import static Formularios.frmIngresarPersona.diferenciasDeFechas;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
@@ -20,6 +19,8 @@ public class frmEditarPersona extends javax.swing.JFrame {
     frmPersona frm;
     /**
      * Creates new form frmEditarPersona
+     * @param p
+     * @param frm
      */
     public frmEditarPersona(Persona p, frmPersona frm) {
         initComponents();
